@@ -2,12 +2,12 @@ import { BaseQueryFn } from "@reduxjs/toolkit/dist/query";
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 const $axios=axios.create({
-    url:''
+    baseURL:'http://localhost:4200/'
 })
 
 export const axiosBaseQuery =
   (
-    { baseUrl }: { baseUrl: string } = { baseUrl: 'http://localhost:4200/' }
+    { baseUrl }: { baseUrl: string } = { baseUrl: '' }
   ): BaseQueryFn<
     {
       url: string

@@ -1,0 +1,37 @@
+
+
+
+.Button{
+    margin: 1rem;
+    padding: 1rem;
+    color: white;
+    font-size: 2rem;
+    transition: 1s all;
+
+    &.warn{
+        background-color: rgb(173, 5, 5);
+        box-shadow: 1px 2px 3px rgb(161, 4, 4);
+        &:hover,:focus{
+            background-color: rgb(153, 8, 8);
+            box-shadow: 2px 3px 4px rgb(112, 3, 3);
+        }
+    }
+
+    &.sucess{
+        background-color: rgb(1, 136, 1);
+        box-shadow: 1px 2px 3px rgb(0, 124, 0);
+        &:hover,:focus{
+            background-color: rgb(4, 112, 4);
+            box-shadow: 2px 3px 4px rgb(2, 73, 2);
+        }
+    }
+
+    &.primary{
+        background-color: rgb(138, 8, 143);
+        box-shadow: 1px 2px 3px rgb(114, 1, 104);
+        &:hover,:focus{
+            background-color: rgb(102, 6, 105);
+            box-shadow: 2px 3px 4px rgb(70, 1, 64);
+        }
+    }
+}
