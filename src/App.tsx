@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.scss';
-import DefaultItems from './components/Items/DefultItems';
+import Login from './components/Auth/Login';
 
 function App() {
   return (
-    <DefaultItems/>
+    <div>
+      <Login/>
+    </div>
   );
 }
 

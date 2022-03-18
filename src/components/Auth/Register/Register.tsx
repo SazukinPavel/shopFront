@@ -3,18 +3,17 @@ import AddUserDto from "../../../types/dto/add_user.dto";
 import ErrorMessage from "../FormControls/ErrorMessage";
 import NameBox from "../FormControls/NameBox";
 import PasswordBox from "../FormControls/PasswordBox";
-import styles from './Login.module.scss'
 
-function Login() {
-
-    const {register,handleSubmit,formState:{errors,isValid}}=useForm<AddUserDto>({mode:'onBlur'})
+function Register() {
+    const {register,handleSubmit,formState:{errors,isValid}}=useForm<AddUserDto>()
 
     const onSubmit=(dto:AddUserDto)=>{
-        console.log(dto);   
+        console.log(dto);
+        
     }
 
     return ( 
-        <div className={styles.Login}>
+        <div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <NameBox register={register}/>
                 <ErrorMessage isActive={!!errors.name} message={errors.name?.message ?? ""}/>
@@ -26,4 +25,4 @@ function Login() {
      );
 }
 
-export default Login;
+export default Register;
