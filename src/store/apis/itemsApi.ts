@@ -15,9 +15,15 @@ export const itemsApi=createApi({
                 method:'get',
                 params:{limit,page}
             }),providesTags:['Items']
+        }),
+        getItemById:builder.query<Item,string>({
+            query:(id)=>({
+                url:'items/'+id,
+                method:'get'
+            }),providesTags:['Items']
         })
     })
 })
 
 
-export const {useGetItemsQuery}=itemsApi
+export const {useGetItemsQuery,useGetItemByIdQuery}=itemsApi

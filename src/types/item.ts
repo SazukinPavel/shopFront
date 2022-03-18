@@ -5,4 +5,10 @@ export interface Item{
     name:string
     price:number
     img:string
+    infos?:ItemInfo[]
+}
+
+export interface ItemInfo{
+    name:string
+    description:string
 }

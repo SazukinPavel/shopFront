@@ -1,5 +1,6 @@
 import { Item } from "../../../types/item";
 import ItemCard from "./ItemCard";
+import ItemCardWithButtons from "./ItemCardWithButtons";
 import styles from './ItemsList.module.scss'
 
 interface ItemsListProps{
@@ -9,7 +10,7 @@ interface ItemsListProps{
 function ItemsList({items}:ItemsListProps) {
     return ( 
         <div className={styles.ItemsList}>
-            {items.map((item,i)=><ItemCard {...item} key={i}/>)}
+            {items.map((item,i)=><ItemCardWithButtons {...item} key={i}/>)}
         </div>
      );
 }

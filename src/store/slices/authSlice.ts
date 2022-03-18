@@ -45,6 +45,7 @@ async(dto,{dispatch,rejectWithValue})=>{
     }
 })
 
+
 const login=(state:WritableDraft<AuthSliceState>,action:PayloadAction<User>)=>{
     state.isAuth=true;
     state.user=action.payload
@@ -58,7 +59,13 @@ const logout=(state:WritableDraft<AuthSliceState>)=>{
 export const authSlice=createSlice({
      name:'auth',
      initialState,
-     reducers:{},
+     reducers:{
+        logout(state:WritableDraft<AuthSliceState>){
+            state.isAuth=false;
+            state.user=null
+            localStorage.removeItem('token')
+        }
+     },
      extraReducers:builder=>{
          builder.addCase(checkTokenThunk.fulfilled,login)
          builder.addCase(checkTokenThunk.rejected,logout)
@@ -69,3 +76,4 @@ export const authSlice=createSlice({
      }
  })
 
+export const {logout:logoutUser}=authSlice.actions

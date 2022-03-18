@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, FC } from "react";
 import styles from './Button.module.scss'
 
 interface ButtonProps{
-    styleType:'warn' | 'sucess' | 'primary'
+    styleType:'warn' | 'sucess' | 'primary' 
 }
 
 const Button:FC<ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps> = ({children,styleType,...props})=>{

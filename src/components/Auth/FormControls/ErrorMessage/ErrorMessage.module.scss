@@ -1,20 +1,15 @@
 .ErrorMessage{
     height: 50px;
-    margin: 0.5rem;
-    display: flex;
-    justify-content: center;
     p{
         font-size: 1rem;
     }
 }
 
 .ErrorMessageActive{
-    height: 50px;
-    display: flex;
-    justify-content: center;
     margin: 0.5rem;
     border: 5px dashed red;
-    span{
-        font-size: 1rem;
+    p{
+        font-size: 2rem;
+        text-align: center;
     }
 }
