@@ -18,9 +18,9 @@ export const axiosBaseQuery =
     unknown,
     unknown
   > =>
-  async ({ url, method, data }) => {
+  async ({ url, method, data,params }) => {
     try {
-      const result = await $axios({ url: baseUrl + url, method, data })
+      const result = await $axios({ url: baseUrl + url,params, method, data})
       return { data: result.data }
     } catch (axiosError) {
       let err = axiosError as AxiosError

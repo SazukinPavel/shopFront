@@ -1,4 +1,8 @@
 .DopInfoCard{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    border: 2px solid gray;
+    p{
+        margin: 20px;
+    }
 }

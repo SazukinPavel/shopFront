@@ -1,0 +1,19 @@
+.PaginationBar{
+
+    display: flex;
+    justify-content: center;
+
+    span{
+        cursor: pointer;
+        margin: 1rem;
+        font-size: 2rem;
+        padding: 0.7rem;
+        border: 2px solid gray;
+        border-radius: 100%;
+        transition: all 0.5s;
+    }
+
+    span.Active{
+        background-color: gray;
+    }
+}

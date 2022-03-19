@@ -3,4 +3,21 @@
         text-align: center;
         font-size: 2rem;
     }
+    img{
+        width: 600px;
+        height: 600px;
+        display: block;
+        margin: 0 auto;
+    }
+    .DopInfoBlock{
+        .DopInfoHeader{
+            display: grid;
+            grid-template-columns: 1fr 0.1fr;
+            span{
+                text-align: center;
+                font-size: 5rem;
+                cursor: pointer;
+            }
+        }
+    }
 }

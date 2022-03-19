@@ -11,7 +11,7 @@ export const itemsApi=createApi({
     endpoints:(builder)=>({
         getItems:builder.query<Item[],ItemsPaginationDto>({
             query:({limit,page})=>({
-                url:'items/',
+                url:'items',
                 method:'get',
                 params:{limit,page}
             }),providesTags:['Items']
