@@ -1,3 +1,4 @@
+import { itemsByCategoryPaginationSlice } from './slices/itemsByCategoryPaginationSlice';
 import { authSlice } from './slices/authSlice';
 import { configureStore } from "@reduxjs/toolkit";
 import { itemsApi } from "./apis/itemsApi";
@@ -9,7 +10,8 @@ export const store=configureStore({
         [itemsApi.reducerPath]:itemsApi.reducer,
         auth:authSlice.reducer,
         itemsPagination:itemsPaginationSlice.reducer,
-        categories:categoriesSlice.reducer
+        categories:categoriesSlice.reducer,
+        categoriesPagination:itemsByCategoryPaginationSlice.reducer,
     },
     middleware:(defaultFn)=>defaultFn().concat(itemsApi.middleware)
 })

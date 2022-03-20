@@ -1,5 +1,3 @@
-
-
 interface PaginationDto{
     limit:number
     page:number
@@ -15,6 +13,14 @@ export interface itemsPaginationSliceState extends DefaultPaginationSliceState{
 
 }
 
+export interface itemsByCategoryPaginationSliceState extends DefaultPaginationSliceState{
+    isError:boolean
+}
+
 export interface ItemsPaginationDto extends PaginationDto{
 
+}
+
+export interface ItemsByCategoryPaginationDto extends PaginationDto{
+    category:string
 }
