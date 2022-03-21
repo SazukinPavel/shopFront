@@ -2,9 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import CategoriesService from '../../services/CategoriesService';
-import { itemsByCategoryPaginationSliceState } from './../../types/pagination';
+import { ItemsByCategoryPaginationSliceState } from '../../types/pagination';
 
-const initialState:itemsByCategoryPaginationSliceState={limit:9,page:0,all:0,isError:false}
+const initialState:ItemsByCategoryPaginationSliceState={limit:9,page:0,all:0,isError:false}
 
 export const getItemsByCategoryCountThunk=createAsyncThunk<number,string>('getItemsByCategoryCount',
 async(category:string,{rejectWithValue})=>{
@@ -28,6 +28,12 @@ export const itemsByCategoryPaginationSlice=createSlice({
         },
         setItemsByCategoryAll(state,action:PayloadAction<number>){
             state.all=action.payload
+        },
+        resetItemsByCategoryPagination(state){
+            state.all=0
+            state.isError=false
+            state.limit=9
+            state.page=0
         }
     },
     extraReducers:builder=>{
@@ -40,4 +46,4 @@ export const itemsByCategoryPaginationSlice=createSlice({
     }
 })
 
-export const {setItemsByCategoryAll,setItemsByCategoryPage}=itemsByCategoryPaginationSlice.actions
+export const {setItemsByCategoryAll,setItemsByCategoryPage,resetItemsByCategoryPagination}=itemsByCategoryPaginationSlice.actions

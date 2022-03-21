@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import ItemsService from "../../services/ItemsService"
-import { itemsPaginationSliceState } from "../../types/pagination"
+import { ItemsPaginationSliceState } from "../../types/pagination"
 
-const initialState:itemsPaginationSliceState={page:0,limit:9,all:0}
+const initialState:ItemsPaginationSliceState={page:0,limit:9,all:0}
 
 export const setItemsCount=createAsyncThunk('setItemsCount',
 async(_,{rejectWithValue})=>{

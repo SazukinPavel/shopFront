@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useRedirectOnError } from "../../../hooks/useRedirectOnError";
 import { useTypedDispatch } from "../../../hooks/useTypedDispatch";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { useGetItemsByCategoryQuery } from "../../../store/apis/itemsApi";
-import { getItemsByCategoryCountThunk, setItemsByCategoryAll, setItemsByCategoryPage } from "../../../store/slices/itemsByCategoryPaginationSlice";
+import { getItemsByCategoryCountThunk, resetItemsByCategoryPagination, setItemsByCategoryAll, setItemsByCategoryPage } from "../../../store/slices/itemsByCategoryPaginationSlice";
 import DownloadBar from "../../UI/DownloadBar";
 import PaginationBar from "../../UI/PaginationBar";
 import ItemsList from "../ItemsList";
@@ -18,7 +19,14 @@ function ItemsByCategory() {
 
     useEffect(()=>{
         dispatch(getItemsByCategoryCountThunk(category??''))
-    },[category,dispatch])
+        
+    },[dispatch])
+
+    useRedirectOnError(isError,'/categories')
+
+    useEffect(()=>{
+        dispatch(resetItemsByCategoryPagination())
+    },[category])
 
     const onSelectPage=(num:number)=>{
         dispatch(setItemsByCategoryPage(num))
@@ -28,7 +36,7 @@ function ItemsByCategory() {
         <div className={styles.ItemsByCategory}>
             <div></div>
             <div>
-                <h3>Категория:</h3>
+                <h3>Категория:{category}</h3>
                 {isLoading?
                 <DownloadBar/>
                 :<>

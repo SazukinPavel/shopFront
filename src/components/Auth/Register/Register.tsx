@@ -12,8 +12,6 @@ import styles from './Register.module.scss'
 
 function Register() {
     const {register,handleSubmit,formState:{errors,isValid}}=useForm<AddUserDto>({mode:'onBlur'})
-
-    console.log(isValid);
     
     const dispatch=useTypedDispatch()
 

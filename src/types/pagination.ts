@@ -9,15 +9,22 @@ interface DefaultPaginationSliceState{
     limit:number
 }
 
-export interface itemsPaginationSliceState extends DefaultPaginationSliceState{
+export interface ItemsPaginationSliceState extends DefaultPaginationSliceState{
 
 }
 
-export interface itemsByCategoryPaginationSliceState extends DefaultPaginationSliceState{
+export interface ItemsByCategoryPaginationSliceState extends DefaultPaginationSliceState{
     isError:boolean
 }
 
+export interface BasketPaginationSliceState extends DefaultPaginationSliceState{
+}
+
 export interface ItemsPaginationDto extends PaginationDto{
+
+}
+
+export interface BasketPaginationDto extends PaginationDto{
 
 }
 

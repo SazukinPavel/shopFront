@@ -4,12 +4,13 @@ import CategoryCard from './CategoryCard';
 
 interface CategoriesListProps{
     categories:Category[]
+    onCategoryClick:(name:string)=>void
 }
 
-function CategoriesList({categories}:CategoriesListProps) {
+function CategoriesList({categories,onCategoryClick}:CategoriesListProps) {
     return ( 
         <div className={styles.CategoriesList}>
-            {categories.map((c,i)=><CategoryCard {...c} key={i}/>)}
+            {categories.map((c,i)=><CategoryCard event={onCategoryClick} category={c} key={i}/>)}
         </div>
      );
 }

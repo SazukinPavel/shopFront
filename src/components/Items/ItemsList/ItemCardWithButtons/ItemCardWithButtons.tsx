@@ -8,7 +8,7 @@ function ItemCardWithButtons(item:Item) {
 
     const navigate=useNavigate()
 
-    const goToItem=()=>navigate(item.id)
+    const goToItem=()=>navigate('/items/'+item.id)
 
     return ( 
         <div className={styles.ItemCardWithButtons}>
