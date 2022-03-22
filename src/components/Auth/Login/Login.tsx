@@ -2,22 +2,26 @@ import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import { useGetBack } from "../../../hooks/useGetBack";
 import { useTypedDispatch } from "../../../hooks/useTypedDispatch";
-import { loginThunk} from "../../../store/slices/authSlice";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { loginThunk, resetIsAuthError} from "../../../store/slices/authSlice";
 import AddUserDto from "../../../types/dto/add_user.dto";
 import Button from "../../UI/Button";
 import ErrorMessage from "../FormControls/ErrorMessage";
+import ModalAuthError from "../FormControls/ModalAuthError";
 import NameBox from "../FormControls/NameBox";
 import PasswordBox from "../FormControls/PasswordBox";
 import styles from './Login.module.scss'
 
 function Login() {
 
-    const {register,handleSubmit,formState:{errors,isValid}}=useForm<AddUserDto>({mode:'onBlur'})
+    const {register,reset,handleSubmit,formState:{errors,isValid}}=useForm<AddUserDto>({mode:'onBlur'})
     const dispatch=useTypedDispatch()
-    
+
     const onSubmit=(dto:AddUserDto)=>{
         dispatch(loginThunk(dto))
+        reset()
     }
+
     const getBack=useGetBack()
 
     return ( 
@@ -34,6 +38,7 @@ function Login() {
                     <Button disabled={!isValid} styleType='sucess' type='submit'>Войти</Button>
                 </div>
             </form>
+            <ModalAuthError/>
             <p className={styles.Message}>Ещё нету аккаунта?<br/><NavLink to='/register'>Зарегистрироваться</NavLink></p>
         </div>
      );

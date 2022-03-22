@@ -1,17 +1,20 @@
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
-import AuthSection from "./AuthSection";
+import AdminSection from "./AdminSection";
 import BaseSection from "./BaseSection";
-import NoAuthSecion from "./NoAuthSecion";
 import './NavBar.scss'
+import NoAuthSecion from "./NoAuthSecion";
+import UserSection from "./UserSection";
 
 function NavBar() {
 
-    const isAuth=useTypedSelector((state)=>state.auth.isAuth)
+    const {user,isAuth}=useTypedSelector((state)=>state.auth)
 
     return ( 
         <nav className='NavBar'>
             <BaseSection/>
-            {isAuth?<AuthSection/>:<NoAuthSecion/>}
+            {!isAuth && <NoAuthSecion/>}
+            {user?.role==='USER' && <UserSection/>}
+            {user?.role==='ADMIN' && <AdminSection/>}
         </nav>
      );
 }

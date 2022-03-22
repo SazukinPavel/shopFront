@@ -1,6 +1,16 @@
 
 
 .ItemPage{
-    width: 40%;
+    width: 50%;
+    min-width: 600px;
     margin: auto;
+
+    .AuthItemInfo{
+        display: flex;
+        justify-content: space-between;
+        p{
+            font-size: 2rem;
+            text-align: center;
+        }
+    }
 }

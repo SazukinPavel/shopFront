@@ -19,7 +19,7 @@ function ItemCardFull(item:Item) {
                     <h3>Дополнительная информация:</h3>
                     <span onClick={setIsShow}>{isShow?'-':'+'}</span>
                 </div>
-                {isShow && item.infos?.map((dop,i)=><DopInfoCard {...dop}/>)}
+                {isShow && item.infos?.map((dop,ind)=><DopInfoCard key={ind} {...dop}/>)}
             </div>
         </div>
      );

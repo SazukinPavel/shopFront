@@ -27,7 +27,7 @@ function BasketItemsList({items}:BasketItemsListProp) {
 
     return ( 
     <div className={styles.BasketItemsList}>
-        {items.map((i)=><BasketItemCard basketItem={i} goToItem={goToItem} deleteAll={deleteAll} deleteOne={deleteOne}/>)}
+        {items.map((i,ind)=><BasketItemCard key={ind} basketItem={i} goToItem={goToItem} deleteAll={deleteAll} deleteOne={deleteOne}/>)}
     </div> 
     );
 }

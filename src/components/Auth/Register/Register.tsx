@@ -6,17 +6,19 @@ import { registerThunk } from "../../../store/slices/authSlice";
 import AddUserDto from "../../../types/dto/add_user.dto";
 import Button from "../../UI/Button";
 import ErrorMessage from "../FormControls/ErrorMessage";
+import ModalAuthError from "../FormControls/ModalAuthError";
 import NameBox from "../FormControls/NameBox";
 import PasswordBox from "../FormControls/PasswordBox";
 import styles from './Register.module.scss'
 
 function Register() {
-    const {register,handleSubmit,formState:{errors,isValid}}=useForm<AddUserDto>({mode:'onBlur'})
+    const {register,handleSubmit,reset,formState:{errors,isValid}}=useForm<AddUserDto>({mode:'onBlur'})
     
     const dispatch=useTypedDispatch()
 
     const onSubmit=(dto:AddUserDto)=>{
         dispatch(registerThunk(dto))
+        reset()
     }
     const getBack=useGetBack()
 
@@ -34,6 +36,7 @@ function Register() {
                     <Button styleType='sucess' disabled={!isValid} type='submit'>Войти</Button>
                 </div>
             </form>
+            <ModalAuthError/>
             <p className={styles.Message}>Уже есть аккаунт?<br/><NavLink to='/login'>Войти</NavLink></p>
         </div>
      );

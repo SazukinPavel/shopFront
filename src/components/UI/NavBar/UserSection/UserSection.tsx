@@ -1,8 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useTypedDispatch } from "../../../../hooks/useTypedDispatch";
 import { logoutUser } from "../../../../store/slices/authSlice";
-import Button from "../../Button";
-import styles from './AuthSection.module.scss'
+import styles from './UserSection.module.scss'
 
 function AuthSection() {
 

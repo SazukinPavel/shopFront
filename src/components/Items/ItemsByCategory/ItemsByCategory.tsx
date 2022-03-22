@@ -34,9 +34,8 @@ function ItemsByCategory() {
 
     return ( 
         <div className={styles.ItemsByCategory}>
-            <div></div>
             <div>
-                <h3>Категория:{category}</h3>
+                <h3>Категория {category}</h3>
                 {isLoading?
                 <DownloadBar/>
                 :<>
@@ -45,7 +44,6 @@ function ItemsByCategory() {
                 </>
                 }
             </div>
-            <div></div>
         </div>
      );
 }

@@ -1,0 +1,26 @@
+.ModalWindow{
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    .ModalContent{
+        border-radius: 5%;
+        margin: auto;
+        background-color: white;
+        cursor:default;
+        span{
+            cursor: pointer;
+            position: relative;
+            right: -98%;
+            top: -20px;
+            padding: 5px 10px;
+            border: black 3px solid;
+            border-radius: 100%;
+        }
+    }
+}
