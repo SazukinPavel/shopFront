@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import { useGetBack } from "../../../hooks/useGetBack";
+import { useGoTo } from "../../../hooks/useGoTo";
 import { useTypedDispatch } from "../../../hooks/useTypedDispatch";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { registerThunk } from "../../../store/slices/authSlice";
 import AddUserDto from "../../../types/dto/add_user.dto";
 import Button from "../../UI/Button";
@@ -13,14 +16,21 @@ import styles from './Register.module.scss'
 
 function Register() {
     const {register,handleSubmit,reset,formState:{errors,isValid}}=useForm<AddUserDto>({mode:'onBlur'})
-    
+    const {isAuth}=useTypedSelector(state=>state.auth)
     const dispatch=useTypedDispatch()
+    const goToItems=useGoTo('/items')
+    const getBack=useGetBack()
 
     const onSubmit=(dto:AddUserDto)=>{
         dispatch(registerThunk(dto))
-        reset()
     }
-    const getBack=useGetBack()
+    
+    useEffect(()=>{
+        if(isAuth){
+            reset()
+            goToItems()
+        }
+    },[isAuth])
 
     return ( 
         <div className={styles.Register}>

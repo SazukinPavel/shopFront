@@ -1,0 +1,16 @@
+.UserCard{
+    border: 4px solid gray;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-column-gap: 0.5rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    p{
+        font-size: 1.5rem;
+        margin: auto;
+    }
+    button{
+        font-size: 2rem;
+        padding: 0.5rem;
+    }
+}

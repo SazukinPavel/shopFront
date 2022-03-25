@@ -5,7 +5,7 @@ import AuthService from '../../services/AuthService';
 import { WritableDraft } from 'immer/dist/internal';
 import AddUserDto from '../../types/dto/add_user.dto';
 
-const initialState:AuthSliceState={isAuth:false,user:null,errorMessage:null}
+const initialState:AuthSliceState={isAuth:false,user:null,errorMessage:null,isError:false}
 
 export const authSlice=createSlice({
     name:'auth',
@@ -51,7 +51,7 @@ async(_,{rejectWithValue})=>{
 })
 
 export const loginThunk=createAsyncThunk<User,AddUserDto>('login',
-async(dto,{rejectWithValue})=>{
+async(dto,{rejectWithValue,dispatch})=>{
     try{
         const res=await AuthService.login(dto)
         localStorage.setItem('token',res.data.token)

@@ -7,7 +7,7 @@ import PaginationBar from "../../UI/PaginationBar";
 import BasketItemsList from "./BasketItemsList";
 import styles from './Basket.module.scss'
 import BasketInfo from "./BasketInfo";
-import EmptyBasket from "./EmptyBasket";
+import EmptyPage from "../../UI/EmptyPage";
 
 function Basket() {
 
@@ -34,7 +34,7 @@ function Basket() {
                         </>}
                     </div>
                 </>
-                :<EmptyBasket/>
+                :<EmptyPage message="Корзина пуста." linkMessage="Посмотреть все товары" link="/items"/>
             }
         </div>
      );

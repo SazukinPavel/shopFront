@@ -1,0 +1,26 @@
+.AdminPanel{
+    width: 40%;
+    margin: 10rem auto;
+    padding: 5rem;
+    background-color: rgb(177, 170, 170);
+
+    h3{
+        font-size: 3rem;
+        text-align: center;
+    }
+    
+    .Links{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        a{
+            text-decoration: none;
+            font-size: 2rem;
+            color: rgb(46, 42, 42);
+            transition: all 1s;
+            &:hover{
+                color: rgb(107, 93, 93);
+            }
+        }
+    }
+}

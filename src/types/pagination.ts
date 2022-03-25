@@ -17,6 +17,10 @@ export interface ItemsByCategoryPaginationSliceState extends DefaultPaginationSl
     isError:boolean
 }
 
+export interface UsersPaginationSliceState extends DefaultPaginationSliceState{
+
+}
+
 export interface BasketPaginationSliceState extends DefaultPaginationSliceState{
 }
 
@@ -25,6 +29,10 @@ export interface ItemsPaginationDto extends PaginationDto{
 }
 
 export interface BasketPaginationDto extends PaginationDto{
+
+}
+
+export interface UsersPaginationDto extends PaginationDto{
 
 }
 

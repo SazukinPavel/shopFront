@@ -7,4 +7,5 @@ export interface AuthSliceState{
     isAuth:boolean
     user:User | null
     errorMessage:string | null
+    isError:boolean
 }

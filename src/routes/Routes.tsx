@@ -1,5 +1,7 @@
 import {Routes,Route} from 'react-router-dom'
 import App from '../App';
+import AdminPanel from '../components/Admin/AdminPanel';
+import UsersStats from '../components/Admin/UsersStats';
 import Login from '../components/Auth/Login';
 import Logout from '../components/Auth/Logout';
 import Register from '../components/Auth/Register';
@@ -35,6 +37,9 @@ function AllRoutes() {
                 {
                     user?.role==='ADMIN'&&
                     <>
+                        <Route path='admin' element={<AdminPanel/>}>
+                        </Route>
+                        <Route path='admin/users' element={<UsersStats/>}/>
                     </>
                 }
                 <Route path="*" element={<DefaultItems/>} />
